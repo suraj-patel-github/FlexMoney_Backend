@@ -25,7 +25,7 @@ const createrUser = async(req, res) => {
             const encryptedPassword = await bcrypt.hash(password, 10);
             const createUserQuery = `insert into users (email, name, password, age, batch) values ($1, $2, $3, $4, $5)`;
 
-            const createdUser = await pool.query(createUserQuery, [email, name, encryptedPassword, age, -1]);
+            const createdUser = await pool.query(createUserQuery, [email, name, encryptedPassword, age, null]);
 
             return res.status(200).json({message : "User Created"});  
         }

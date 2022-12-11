@@ -9,7 +9,7 @@ const isBatchSelected = async(req, res) => {
 
         const user = await pool.query(query, [userId]);
 
-        if(user.rows[0].batch == -1) {
+        if(user.rows[0].batch == null) {
             return res.status(200).json({message: "You can select batch"});
         }
         else {

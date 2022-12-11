@@ -16,7 +16,7 @@ const payment = async(req, res) => {
         else {
             const query = `update users set last_month = $1, batch = $2 where id = $3`;
 
-            const updateUser = await pool.query(query, [currMonth, -1, id]);
+            const updateUser = await pool.query(query, [currMonth, null, id]);
 
             return res.status(200).json({message: "Payment Successfull"});
         }
