@@ -14,5 +14,4 @@ const getUser = async(req, res) => {
         return res.status(500).json({message: "Server Error"});
     }
 }
-
 module.exports = getUser;

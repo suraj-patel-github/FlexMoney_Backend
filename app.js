@@ -1,6 +1,7 @@
 const express = require("express");
 require("./config/db");
 
+const cors = require("cors");
 const userRouter = require("./routes/user");
 const renewalRouter = require("./routes/renewal");
 const loginRouter = require("./routes/login");
@@ -9,7 +10,7 @@ const authenticate = require("./utils/authenticate");
 const app = express();
 
 app.use(express.json());
-
+app.use(cors("*"));
 app.get("/", authenticate, (req, res) => {
    return res.send("hello world");
 })
