@@ -1,5 +1,6 @@
 const pool = require("../../config/db");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const login = async(req, res) =>{
     try{
@@ -14,7 +15,8 @@ const login = async(req, res) =>{
             bcrypt.compare( password, encryptedPassword )
                 .then((correct)=>{
                     if(correct){
-                        return res.status(200).json({message : `User Logged in successfully`});
+                        const token = jwt.sign(user.rows[0].id, "HelloWorldSuraj");
+                        return res.status(200).json({message : `User Logged in successfully`, token: token});
                     } 
                     else{
                         return res.status(403).json({message :" Password does not match"});

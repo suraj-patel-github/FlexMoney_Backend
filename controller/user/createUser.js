@@ -14,8 +14,12 @@ const createrUser = async(req, res) => {
         }
         else {
 
-            if(age < 18 || age > 65) {
-                return res.status(400).json({message: "User under or over age"});
+            if(age < 18) {
+                return res.status(400).json({message: "User under age"});
+            }
+            if(age>65){
+
+                return res.status(400).json({message: "User over age"})  
             }
 
             const encryptedPassword = await bcrypt.hash(password, 10);
