@@ -5,7 +5,8 @@ const pool = new Pool({
     host : process.env.HOST,
     database : process.env.DB,
     password : process.env.PASSWORD,
-    port : process.env.PORT
+    port : process.env.PORT,
+    ssl: true
 })
 
 pool.connect((err) => {
