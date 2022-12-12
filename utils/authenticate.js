@@ -9,7 +9,7 @@ const authenticate = async(req, res, next) => {
             return res.status(400).json({message: "Token missing"});
         }
         else {
-            jwt.verify(token, "HelloWorldSuraj", async (err, decode) => {
+            jwt.verify(token, process.env.JWT_SECRET, async (err, decode) => {
                 if(err) {
                     return res.status(401).json({message: "Error with Token"});
                 }

@@ -15,7 +15,7 @@ const login = async(req, res) =>{
             bcrypt.compare( password, encryptedPassword )
                 .then((correct)=>{
                     if(correct){
-                        const token = jwt.sign(user.rows[0].id, "HelloWorldSuraj");
+                        const token = jwt.sign(user.rows[0].id, process.env.JWT_SECRET);
                         return res.status(200).json({message : `User Logged in successfully`, token: token});
                     } 
                     else{
