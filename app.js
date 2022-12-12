@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use(cors("*"));
 
-app.get("/", authenticate, (req, res) => {
+app.get("/", (req, res) => {
    return res.send("hello world");
 })
 
