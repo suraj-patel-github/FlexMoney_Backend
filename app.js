@@ -28,6 +28,6 @@ app.use("/renewal", renewalRouter);
 
 app.use("/batch", batchRouter);
 
-app.listen(3000, () => {
-    console.log(`Server started on 3000`);
+app.listen(process.env.PORT ? process.env.PORT : 3000, () => {
+    console.log(`Server started on ${process.env.PORT ? process.env.PORT : 3000}`);
 })
