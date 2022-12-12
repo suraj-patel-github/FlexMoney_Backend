@@ -17,6 +17,9 @@ app.use(express.json());
 
 app.use(cors("*"));
 
+app.get("/home",(req,res)=>{
+    res.send("Server is rocking");
+})
 app.get("/", (req, res) => {
    return res.send("hello world");
 })
