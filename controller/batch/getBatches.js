@@ -3,7 +3,7 @@ const pool = require("../../config/db");
 
 const getBatches = async(req, res) => {
     try {
-        const query = `select * from batches`;
+        const query = `select * from batches oreder by time`;
 
         const batches = await pool.query(query, []);
 
